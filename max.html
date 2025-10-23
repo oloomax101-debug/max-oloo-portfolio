@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name – Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name – Web Designer & Developer" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter,system-ui,Segoe UI,Arial;background:#020417;color:#eef6ff}
+    #bgCanvas{position:fixed;inset:0;z-index:0}
+    .blobs{position:fixed;inset:0;pointer-events:none;z-index:1}
+    .wrap{position:relative;z-index:2;min-height:100vh;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+    h1{font-size:48px;letter-spacing:-0.02em;margin-bottom:12px}
+    p.lead{color:rgba(238,246,255,0.85);font-size:18px;margin-bottom:20px;max-width:640px}
+    .btn{background:linear-gradient(90deg,#6ee7ff,#a78bfa);color:#051022;padding:12px 24px;border-radius:12px;border:none;font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(103,77,255,0.15);text-decoration:none}
+    .projects{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;width:100%;max-width:1000px}
+    .project{background:rgba(255,255,255,0.04);padding:24px;border-radius:16px;text-align:left}
+    .project h3{margin-bottom:8px;color:#fff}
+    .project p{color:rgba(255,255,255,0.75);font-size:15px}
+    .footer{margin-top:60px;font-size:14px;color:rgba(255,255,255,0.45)}
+    @media(max-width:600px){h1{font-size:34px}}
+  </style>
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+  <svg class="blobs" width="100%" height="100%" viewBox="0 0 1000 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="g1" x1="0" x2="1">
+        <stop offset="0%" stop-color="#3b82f6" />
+        <stop offset="100%" stop-color="#06b6d4" />
+      </linearGradient>
+      <linearGradient id="g2" x1="0" x2="1">
+        <stop offset="0%" stop-color="#8b5cf6" />
+        <stop offset="100%" stop-color="#fb7185" />
+      </linearGradient>
+    </defs>
+    <g style="mix-blend-mode:screen">
+      <ellipse cx="180" cy="220" rx="260" ry="160" fill="url(#g1)" filter="blur(36px)" opacity="0.82"/>
+      <ellipse cx="820" cy="160" rx="200" ry="120" fill="url(#g2)" filter="blur(36px)" opacity="0.82"/>
+      <ellipse cx="640" cy="520" rx="360" ry="220" fill="url(#g1)" filter="blur(36px)" opacity="0.82"/>
+    </g>
+  </svg>
+
+  <div class="wrap">
+    <h1>Maxwel oloo</h1>
+    <p class="lead">A dedicated and enthusiastic individual with strong interpersonal and communication skills, passionate about providing excellent customer service. Experienced in hospitality through volunteer catering work and well-versed in teamwork, multitasking, and handling fast-paced environments. Currently pursuing a Bachelor’s degree at Jomo Kenyatta University of Agriculture and Technology (JKUAT), with a commitment to delivering professionalism, reliability, and a positive dining experience to every guest.</p>
+    <a href="#projects" class="btn">View Projects</a>
+
+    <div id="projects" class="projects">
+      <div class="project">
+        <h3>EDUCATION</h3>
+        <p>Bachelor’s Degree (Ongoing)
+Jomo Kenyatta University of Agriculture and Technology (JKUAT)
+Expected Graduation: 13/06/2029
+           High school
+Mbita Highschool
+KCSE year :2024.</p>
+      </div>
+      <div class="project">
+        <h3>VOLUNTEER EXPERIENCE</h3>
+        <p>Public Event – Siaya County
+
+Assisted in food service and guest management for a large public event.
+
+Worked collaboratively with team members to ensure efficient service and cleanliness.
+
+Helped set up dining areas, serve guests, and maintain a welcoming environment.</p>
+      </div>
+      <div class="project">
+        <h3>SKILLS</h3>
+        <p>Excellent communication and customer service
+
+Teamwork and collaboration
+
+Time management and multitasking
+
+Reliability and attention to detail
+
+Ability to work under pressure
+
+Friendly and professional demeanor
+
+Basic food handling and hygiene awareness</p>
+      </div>
+    </div>
+
+    <div class="footer">©2025 Maxwel oloo• </div>
+  </div>
+
+  <script>
+    // Canvas background simplified version
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let W = canvas.width = innerWidth;
+    let H = canvas.height = innerHeight;
+    window.addEventListener('resize', ()=>{ W = canvas.width = innerWidth; H = canvas.height = innerHeight; });
+
+    function draw(){
+      const grad = ctx.createLinearGradient(0,0,0,H);
+      grad.addColorStop(0,'#021427'); grad.addColorStop(0.45,'#001827'); grad.addColorStop(1,'#00101a');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0,0,W,H);
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>
